@@ -13,8 +13,8 @@ INC = -I./inc
 
 # libraries
 #LIB = -L../folder name -lrt
-LIB = -L./lib -ltmeas -fopenmp
-
+LIB = -L./lib -ltmeas $(OPENMP)
+OPENMP = -fopenmp
 # dependancies and commands
 main: lab5_2.o
 	$(LOADER) $(OPT) lab5_2.o -o lab5_2 $(LIB)
@@ -24,7 +24,7 @@ main.o: lab5_2.c
 	$(CCOMP) -c $(OPT) lab5_2.c $(INC)
 
 tmeas.o: tmeas.c
-	$(CCOMP) -c $(OPT) tmeas.c $(INC) -fopenmp
+	$(CCOMP) -c $(OPT) tmeas.c $(INC) $(OPENMP)
 
 clean:
 	rm -f *.o

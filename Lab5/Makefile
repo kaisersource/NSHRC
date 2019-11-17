@@ -3,7 +3,7 @@ CCOMP = gcc
 
 #C linker
 LOADER = gcc
-
+OPENMP = -fopenmp
 # optymalization options
 #OPT = -O3
 
@@ -13,7 +13,7 @@ INC = -I./inc
 
 # libraries
 #LIB = -L../folder name -lrt
-LIB = -L./lib -fopenmp
+LIB = -L./lib $(OPENMP)
 
 # dependancies and commands
 lab5: lab5.o
@@ -21,7 +21,7 @@ lab5: lab5.o
 
 # how to obtain a file myprogram.o
 lab5.o: lab5.c
-	$(CCOMP) -c lab5.c $(INC) -fopenmp
+	$(CCOMP) -c lab5.c $(INC) $(OPENMP)
 
 
 
