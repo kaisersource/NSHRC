@@ -47,10 +47,9 @@ start=omp_get_wtime();
 lsum=0;
 #pragma omp for
   for (i=0; i<n; i++){
-    lsum+=x*x;
+    #pragma omp critical
+    sum+=x*x;
   }
-#pragma omp critical
-sum+=lsum;
 }
 stop=omp_get_wtime();
 printf("Critical - sum squares: %d. Time : %lf \n",sum,stop-start);
