@@ -1,0 +1,2 @@
+mpicc examplempi.c -o empi 
+mpirun --hostfile hostfile --display-map ./test
